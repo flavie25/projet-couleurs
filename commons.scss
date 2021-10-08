@@ -37,14 +37,35 @@ h2 {
     font-family: 'Merienda', cursive;
 }
 
+h2:nth-child(1) {
+    border-bottom: 2px solid $primary;
+}
+
 h3 {
     font-size: 1.625em;
     line-height: 1.75em;
     color: $primary;
     font-family: 'Lato', sans-serif;
     font-weight: 700;
+    // border-bottom: 2px solid #113a7f;
+    position: relative;
 }
 
+// h3::after {
+//     content: "";
+//     position: absolute;
+//     background: #113a7f;
+//     height: 10px;
+//     width: 50%;
+//     top: 44px;
+//     left: 0;
+//     z-index: -1;
+//     -webkit-transition: all 1s ease-in-out;
+//     transition: all 1s ease-in-out;
+// }
+// h3:hover:after {
+//     width: 100%;
+// }
 p {
     font-size: 1em;
     line-height: 1.5em;
@@ -62,17 +83,7 @@ span {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2em 0;
-}
-
-.titre-h2 {
-    background-color: $primary;
-    text-align: center;
-    padding: 2em 0;
-    width: 100%;
-    h2 {
-        color: $white;
-    }
+    padding: 4em 0;
 }
 
 .block-8 {
@@ -85,15 +96,33 @@ span {
     width: 33%;
 }
 
+.titre-h2 {
+    background-color: $primary;
+    text-align: center;
+    padding: 2em 0;
+    width: 100%;
+    h2 {
+        color: $white;
+    }
+}
+
+footer {
+    background-color: $primary;
+    color: $white;
+    text-align: center;
+    padding: 0.5em;
+}
+
 /////////////////////////*Header*//////////////////////////////////
 .banner {
     position: relative;
     width: 100%;
-    height: 80vh;
+    height: 500px;
     overflow: hidden;
     img {
         width: 100%;
         height: 100%;
+        object-fit: cover;
     }
     .overlay {
         position: absolute;
@@ -112,12 +141,32 @@ span {
 }
 
 /////////////////////////*Oeuvres*//////////////////////////////////
+.article:nth-child(1) .article-text {
+    background-image: url(./img/01.png);
+    background-position: bottom right;
+    background-repeat: no-repeat;
+}
+
+.article:nth-child(2) .article-text {
+    background-image: url(./img/02.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;
+}
+
+.article:nth-child(3) .article-text {
+    background-image: url(./img/03.png);
+    background-position: bottom right;
+    background-repeat: no-repeat;
+}
+
 .article {
     display: flex;
     flex-direction: row;
-    margin: 1em 4em;
+    .article-text {
+        display: flex;
+        flex-direction: column;
+    }
     .article-img {
-        // flex: 1;
         display: flex;
         justify-content: center;
         img {
@@ -125,19 +174,48 @@ span {
             width: 100%;
         }
     }
-    // .article-text {
-    //     flex: 2;
-    // }
 }
 
 /////////////////////////*Responsif*//////////////////////////////////
 @media screen and (max-width: 900px) {
+    h1 {
+        font-size: 2.25em;
+        line-height: 3em;
+    }
+    h2 {
+        font-size: 1.75em;
+        line-height: 2em;
+    }
+    h3 {
+        line-height: 1.25em;
+    }
     .article {
         flex-direction: column;
+        align-items: center;
+    }
+    .article:nth-child(2) {
+        flex-direction: column-reverse;
+    }
+    .block-8 {
+        width: auto;
+    }
+    .block-4 {
+        width: 60%;
+    }
+    .banner {
+        height: 250px;
+    }
+    .article:nth-child(1) .article-text,
+    .article:nth-child(2) .article-text,
+    .article:nth-child(3) .article-text {
+        background-image: none;
+    }
+    h2:nth-child(1) {
+        border-bottom: none;
     }
 }
 
-/////////////////////////*Animation*//////////////////////////////////
+/////////////////////////*Animation Banner*//////////////////////////////////
 .kenburns-top {
     -webkit-animation: kenburns-top 5s ease-in-out reverse both;
     animation: kenburns-top 5s ease-in-out reverse both;

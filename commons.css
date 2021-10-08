@@ -40,12 +40,17 @@ h2 {
   font-family: 'Merienda', cursive;
 }
 
+h2:nth-child(1) {
+  border-bottom: 2px solid #113A7F;
+}
+
 h3 {
   font-size: 1.625em;
   line-height: 1.75em;
   color: #113A7F;
   font-family: 'Lato', sans-serif;
   font-weight: 700;
+  position: relative;
 }
 
 p {
@@ -72,7 +77,17 @@ span {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 2em 0;
+  padding: 4em 0;
+}
+
+.block-8 {
+  padding: 1em 0.75em;
+  width: 66%;
+}
+
+.block-4 {
+  padding: 1em 0.75em;
+  width: 33%;
 }
 
 .titre-h2 {
@@ -86,26 +101,25 @@ span {
   color: #FAFAFA;
 }
 
-.block-8 {
-  padding: 1em 0.75em;
-  width: 66%;
-}
-
-.block-4 {
-  padding: 1em 0.75em;
-  width: 33%;
+footer {
+  background-color: #113A7F;
+  color: #FAFAFA;
+  text-align: center;
+  padding: 0.5em;
 }
 
 .banner {
   position: relative;
   width: 100%;
-  height: 80vh;
+  height: 500px;
   overflow: hidden;
 }
 
 .banner img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .banner .overlay {
@@ -130,6 +144,24 @@ span {
   color: #FAFAFA;
 }
 
+.article:nth-child(1) .article-text {
+  background-image: url(./img/01.png);
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}
+
+.article:nth-child(2) .article-text {
+  background-image: url(./img/02.png);
+  background-position: bottom left;
+  background-repeat: no-repeat;
+}
+
+.article:nth-child(3) .article-text {
+  background-image: url(./img/03.png);
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}
+
 .article {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -138,7 +170,16 @@ span {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin: 1em 4em;
+}
+
+.article .article-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .article .article-img {
@@ -157,11 +198,48 @@ span {
 }
 
 @media screen and (max-width: 900px) {
+  h1 {
+    font-size: 2.25em;
+    line-height: 3em;
+  }
+  h2 {
+    font-size: 1.75em;
+    line-height: 2em;
+  }
+  h3 {
+    line-height: 1.25em;
+  }
   .article {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .article:nth-child(2) {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .block-8 {
+    width: auto;
+  }
+  .block-4 {
+    width: 60%;
+  }
+  .banner {
+    height: 250px;
+  }
+  .article:nth-child(1) .article-text,
+  .article:nth-child(2) .article-text,
+  .article:nth-child(3) .article-text {
+    background-image: none;
+  }
+  h2:nth-child(1) {
+    border-bottom: none;
   }
 }
 
